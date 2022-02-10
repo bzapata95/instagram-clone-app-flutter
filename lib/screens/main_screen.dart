@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:instagram_clone_app/widgets/widgets.dart';
 
 class MainScreen extends StatelessWidget {
   const MainScreen({Key? key}) : super(key: key);
@@ -41,110 +42,75 @@ class MainScreen extends StatelessWidget {
       ),
       body: SingleChildScrollView(
           child: Column(
-        children: [
-          SingleChildScrollView(
-              padding: const EdgeInsets.only(top: 5),
-              scrollDirection: Axis.horizontal,
-              child: Row(children: [
-                Container(
-                  margin: edgeInsets,
-                  child: const AvatarCircle(
-                    hasHistory: false,
-                    avatarUrl: 'bzapata95',
-                  ),
-                ),
-                Container(
-                  margin: edgeInsets,
-                  child: const AvatarCircle(
-                    hasHistory: false,
-                    avatarUrl: 'guilhermerodz',
-                  ),
-                ),
-                Container(
-                  margin: edgeInsets,
-                  child: const AvatarCircle(
-                    hasHistory: false,
-                    avatarUrl: 'anasilveira9787',
-                  ),
-                ),
-                Container(
-                  margin: edgeInsets,
-                  child: AvatarCircle(
-                    hasHistory: _hasHistory,
-                    avatarUrl: 'Sraik25',
-                  ),
-                ),
-                Container(
-                  margin: edgeInsets,
-                  child: AvatarCircle(
-                    hasHistory: _hasHistory,
-                    avatarUrl: 'diego3g',
-                  ),
-                ),
-                Container(
-                  margin: edgeInsets,
-                  child: AvatarCircle(
-                    hasHistory: _hasHistory,
-                    avatarUrl: 'zenorocha',
-                  ),
-                ),
-                Container(
-                  margin: edgeInsets,
-                  child: AvatarCircle(
-                    hasHistory: _hasHistory,
-                    avatarUrl: 'wilderPariona',
-                  ),
-                ),
-              ]))
-        ],
+        children: const [_HistoryScrollView(edgeInsets: edgeInsets), Divider()],
       )),
     );
   }
 }
 
-class AvatarCircle extends StatelessWidget {
-  final String avatarUrl;
-
-  const AvatarCircle({
+class _HistoryScrollView extends StatelessWidget {
+  const _HistoryScrollView({
     Key? key,
-    required bool hasHistory,
-    required this.avatarUrl,
-  })  : _hasHistory = hasHistory,
-        super(key: key);
+    required this.edgeInsets,
+  }) : super(key: key);
 
-  final bool _hasHistory;
+  final EdgeInsets edgeInsets;
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      alignment: const Alignment(0, 0),
-      children: [
-        Container(
-          height: 70,
-          width: 70,
-          decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              gradient: LinearGradient(
-                  begin: Alignment.bottomLeft,
-                  end: Alignment.topRight,
-                  stops: [0.2, 0.8],
-                  colors: _hasHistory
-                      ? [Colors.orange, Colors.redAccent]
-                      : [Colors.grey, Colors.grey])),
-        ),
-        const SizedBox(
-          height: 65,
-          width: 65,
-          child: CircleAvatar(backgroundColor: Colors.white),
-        ),
-        SizedBox(
-          height: 59,
-          width: 59,
-          child: CircleAvatar(
-            backgroundImage: NetworkImage('https://github.com/$avatarUrl.png'),
+    return SingleChildScrollView(
+        padding: const EdgeInsets.only(top: 5),
+        scrollDirection: Axis.horizontal,
+        child: Row(children: [
+          Container(
+            margin: edgeInsets,
+            child: const AvatarHistoryCircle(
+              hasHistory: false,
+              avatarUrl: 'bzapata95',
+            ),
           ),
-        )
-      ],
-    );
+          Container(
+            margin: edgeInsets,
+            child: const AvatarHistoryCircle(
+              hasHistory: false,
+              avatarUrl: 'guilhermerodz',
+            ),
+          ),
+          Container(
+            margin: edgeInsets,
+            child: const AvatarHistoryCircle(
+              hasHistory: true,
+              avatarUrl: 'anasilveira9787',
+            ),
+          ),
+          Container(
+            margin: edgeInsets,
+            child: const AvatarHistoryCircle(
+              hasHistory: true,
+              avatarUrl: 'Sraik25',
+            ),
+          ),
+          Container(
+            margin: edgeInsets,
+            child: const AvatarHistoryCircle(
+              hasHistory: true,
+              avatarUrl: 'diego3g',
+            ),
+          ),
+          Container(
+            margin: edgeInsets,
+            child: const AvatarHistoryCircle(
+              hasHistory: true,
+              avatarUrl: 'zenorocha',
+            ),
+          ),
+          Container(
+            margin: edgeInsets,
+            child: const AvatarHistoryCircle(
+              hasHistory: true,
+              avatarUrl: 'wilderPariona',
+            ),
+          ),
+        ]));
   }
 }
