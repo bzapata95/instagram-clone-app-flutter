@@ -28,7 +28,7 @@ class AvatarCircle extends StatelessWidget {
                   stops: const [0.2, 0.8],
                   colors: hasHistory
                       ? [Colors.orange, Colors.redAccent]
-                      : [Colors.grey.shade400, Colors.grey.shade400])),
+                      : [Colors.transparent, Colors.transparent])),
         ),
         SizedBox(
           height: hasHistory ? radius - 5 : radius - 3,
@@ -36,8 +36,8 @@ class AvatarCircle extends StatelessWidget {
           child: const CircleAvatar(backgroundColor: Colors.white),
         ),
         SizedBox(
-          height: radius - 10,
-          width: radius - 10,
+          height: hasHistory ? radius - 10 : radius - 5,
+          width: hasHistory ? radius - 10 : radius - 5,
           child: CircleAvatar(
             backgroundImage: NetworkImage('https://github.com/$avatarUrl.png'),
           ),

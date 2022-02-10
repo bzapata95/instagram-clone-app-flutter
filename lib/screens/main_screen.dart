@@ -74,36 +74,55 @@ class MainScreen extends StatelessWidget {
                   const Image(
                       image: NetworkImage(
                           'https://instagram.flim16-1.fna.fbcdn.net/v/t51.2885-15/122168340_3381370471900119_4314554744700889384_n.jpg?stp=dst-jpg_e35&_nc_ht=instagram.flim16-1.fna.fbcdn.net&_nc_cat=103&_nc_ohc=pf8mCjT8eRwAX_3Xf4V&tn=dEMk-vqEy0pht01t&edm=ALQROFkBAAAA&ccb=7-4&ig_cache_key=MjQyNzE3NDk5MTUxNzQ4NDA1MA%3D%3D.2-ccb7-4&oh=00_AT_xchNwQAX55MUb-ZlzOCginiXA1zb5Covi-BVeMlZsSQ&oe=620C2D9B&_nc_sid=30a2ef')),
-                  Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Row(children: [
+                  Padding(
+                    padding: const EdgeInsets.only(
+                      left: 8,
+                      right: 15,
+                      top: 8,
+                      bottom: 0,
+                    ),
+                    child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Row(children: [
+                            IconButton(
+                                padding: EdgeInsets.zero,
+                                iconSize: 30,
+                                // splashColor: Colors.transparent,
+                                // highlightColor: Colors.transparent,
+                                constraints: BoxConstraints(),
+                                onPressed: () {},
+                                icon: Icon(Icons.favorite_border)),
+                            SizedBox(width: 10),
+                            IconButton(
+                                padding: EdgeInsets.zero,
+                                constraints: BoxConstraints(),
+                                onPressed: () {},
+                                icon: Icon(Icons.mode_comment_outlined,
+                                    size: 27)),
+                          ]),
                           IconButton(
                               padding: EdgeInsets.zero,
+                              constraints: BoxConstraints(),
                               onPressed: () {},
-                              icon: Icon(Icons.favorite_border, size: 30)),
-                          IconButton(
-                              padding: EdgeInsets.zero,
-                              onPressed: () {},
-                              icon:
-                                  Icon(Icons.mode_comment_outlined, size: 27)),
+                              icon: Icon(Icons.bookmark_border_outlined,
+                                  size: 32)),
                         ]),
-                        IconButton(
-                            padding: EdgeInsets.zero,
-                            onPressed: () {},
-                            icon:
-                                Icon(Icons.bookmark_border_outlined, size: 32)),
-                      ]),
+                  ),
                   Padding(
                     padding: const EdgeInsets.only(
                         left: 15, right: 15, top: 0, bottom: 10),
                     child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          const Text('3,843 likes',
-                              style: TextStyle(fontWeight: FontWeight.bold)),
-                          const SizedBox(
-                            height: 5,
+                          TextButton(
+                            onPressed: () {
+                              Navigator.pushNamed(context, 'likes_screen');
+                            },
+                            child: const Text('3,843 likes',
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.black)),
                           ),
                           RichText(
                               overflow: TextOverflow.ellipsis,
@@ -119,15 +138,12 @@ class MainScreen extends StatelessWidget {
                                         ' Exercitation sit pariatur nisi sunt mollit veniam pariatur nisi. Nostrud ex mollit laborum elit consequat',
                                     style: TextStyle(color: Colors.black)),
                               ])),
-                          const SizedBox(
-                            height: 10,
-                          ),
-                          Text('View all 213 comments',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w500,
-                                  color: Colors.grey.shade600)),
-                          const SizedBox(
-                            height: 5,
+                          TextButton(
+                            onPressed: () {},
+                            child: Text('View all 213 comments',
+                                style: TextStyle(
+                                    fontWeight: FontWeight.w500,
+                                    color: Colors.grey.shade600)),
                           ),
                           Text('2 days ago',
                               style: TextStyle(

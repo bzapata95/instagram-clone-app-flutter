@@ -13,10 +13,20 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Instagram clone',
       initialRoute: 'main_screen',
-      routes: {'main_screen': (_) => const MainScreen()},
+      routes: {
+        'main_screen': (_) => const MainScreen(),
+        'likes_screen': (_) => const LikesScreen()
+      },
       theme: ThemeData.light().copyWith(
-        appBarTheme:
-            const AppBarTheme(backgroundColor: Colors.white, elevation: 0),
+        appBarTheme: const AppBarTheme(
+            backgroundColor: Colors.white,
+            elevation: 0,
+            foregroundColor: Colors.black),
+        textButtonTheme: TextButtonThemeData(
+          style: TextButton.styleFrom(
+              padding: EdgeInsets.zero,
+              minimumSize: const Size(double.minPositive, 5)),
+        ),
       ),
     );
   }
