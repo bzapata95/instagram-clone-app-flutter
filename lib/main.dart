@@ -15,7 +15,8 @@ class MyApp extends StatelessWidget {
       initialRoute: 'main_screen',
       routes: {
         'main_screen': (_) => const MainScreen(),
-        'likes_screen': (_) => const LikesScreen()
+        'likes_screen': (_) => const LikesScreen(),
+        'comments_screen': (_) => const CommentsScreen(),
       },
       theme: ThemeData.light().copyWith(
         appBarTheme: const AppBarTheme(

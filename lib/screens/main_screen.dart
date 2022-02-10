@@ -97,7 +97,10 @@ class MainScreen extends StatelessWidget {
                             IconButton(
                                 padding: EdgeInsets.zero,
                                 constraints: BoxConstraints(),
-                                onPressed: () {},
+                                onPressed: () {
+                                  Navigator.pushNamed(
+                                      context, 'comments_screen');
+                                },
                                 icon: Icon(Icons.mode_comment_outlined,
                                     size: 27)),
                           ]),
@@ -139,7 +142,9 @@ class MainScreen extends StatelessWidget {
                                     style: TextStyle(color: Colors.black)),
                               ])),
                           TextButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.pushNamed(context, 'comments_screen');
+                            },
                             child: Text('View all 213 comments',
                                 style: TextStyle(
                                     fontWeight: FontWeight.w500,
