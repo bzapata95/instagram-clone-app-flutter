@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
+import 'dart:math' as math;
+
 import 'package:instagram_clone_app/widgets/widgets.dart';
 
 class MainScreen extends StatelessWidget {
   const MainScreen({Key? key}) : super(key: key);
-
-  final _hasHistory = true;
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +42,103 @@ class MainScreen extends StatelessWidget {
       ),
       body: SingleChildScrollView(
           child: Column(
-        children: const [_HistoryScrollView(edgeInsets: edgeInsets), Divider()],
+        children: [
+          const _HistoryScrollView(edgeInsets: edgeInsets),
+          const Divider(),
+          SizedBox(
+              width: double.infinity,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(
+                        left: 8, right: 8, top: 3, bottom: 2),
+                    child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Row(children: const [
+                            AvatarCircle(avatarUrl: 'bzapata95', radius: 42),
+                            SizedBox(width: 10),
+                            Text('bzapata95',
+                                style: TextStyle(
+                                    fontWeight: FontWeight.w700, fontSize: 13)),
+                          ]),
+                          IconButton(
+                              onPressed: () {},
+                              icon: const Icon(
+                                Icons.more_horiz,
+                                color: Colors.grey,
+                              ))
+                        ]),
+                  ),
+                  const Image(
+                      image: NetworkImage(
+                          'https://instagram.flim16-1.fna.fbcdn.net/v/t51.2885-15/122168340_3381370471900119_4314554744700889384_n.jpg?stp=dst-jpg_e35&_nc_ht=instagram.flim16-1.fna.fbcdn.net&_nc_cat=103&_nc_ohc=pf8mCjT8eRwAX_3Xf4V&tn=dEMk-vqEy0pht01t&edm=ALQROFkBAAAA&ccb=7-4&ig_cache_key=MjQyNzE3NDk5MTUxNzQ4NDA1MA%3D%3D.2-ccb7-4&oh=00_AT_xchNwQAX55MUb-ZlzOCginiXA1zb5Covi-BVeMlZsSQ&oe=620C2D9B&_nc_sid=30a2ef')),
+                  Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Row(children: [
+                          IconButton(
+                              padding: EdgeInsets.zero,
+                              onPressed: () {},
+                              icon: Icon(Icons.favorite_border, size: 30)),
+                          IconButton(
+                              padding: EdgeInsets.zero,
+                              onPressed: () {},
+                              icon:
+                                  Icon(Icons.mode_comment_outlined, size: 27)),
+                        ]),
+                        IconButton(
+                            padding: EdgeInsets.zero,
+                            onPressed: () {},
+                            icon:
+                                Icon(Icons.bookmark_border_outlined, size: 32)),
+                      ]),
+                  Padding(
+                    padding: const EdgeInsets.only(
+                        left: 15, right: 15, top: 0, bottom: 10),
+                    child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Text('3,843 likes',
+                              style: TextStyle(fontWeight: FontWeight.bold)),
+                          const SizedBox(
+                            height: 5,
+                          ),
+                          RichText(
+                              overflow: TextOverflow.ellipsis,
+                              maxLines: 2,
+                              text: const TextSpan(children: [
+                                TextSpan(
+                                    text: 'bryanczapata',
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.black)),
+                                TextSpan(
+                                    text:
+                                        ' Exercitation sit pariatur nisi sunt mollit veniam pariatur nisi. Nostrud ex mollit laborum elit consequat',
+                                    style: TextStyle(color: Colors.black)),
+                              ])),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          Text('View all 213 comments',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w500,
+                                  color: Colors.grey.shade600)),
+                          const SizedBox(
+                            height: 5,
+                          ),
+                          Text('2 days ago',
+                              style: TextStyle(
+                                  fontSize: 13,
+                                  fontWeight: FontWeight.w500,
+                                  color: Colors.grey.shade600))
+                        ]),
+                  ),
+                ],
+              )),
+        ],
       )),
     );
   }
