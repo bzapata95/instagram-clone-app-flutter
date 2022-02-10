@@ -26,8 +26,8 @@ Instagram clone with FLUTTER
 
 This app features all the latest tools and practices in app development!
 
-- **Flutter** — A JavaScript library for building user interfaces
-- IN PROGRESS INTEGRATION WITH BACKEND DEPLOYMENT IN REPOSITORY [LINK](https://github.com/bzapata95/instagram-clone)...
+- **Flutter**
+- IN PROGRESS INTEGRATION WITH BACKEND DEPLOYMENT IN REPOSITORY [Repository](https://github.com/bzapata95/instagram-clone)...
 
 ## License
 
