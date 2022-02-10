@@ -55,7 +55,13 @@ class CommentsScreen extends StatelessWidget {
                                                   style: TextStyle(
                                                       color: Colors.black)),
                                             ])),
-                                            Text('hora')
+                                            SizedBox(
+                                              height: 5,
+                                            ),
+                                            Text('hora',
+                                                style: TextStyle(
+                                                    color: Colors.grey.shade600,
+                                                    fontSize: 12))
                                           ]),
                                     )
                                   ],

@@ -17,6 +17,7 @@ class MyApp extends StatelessWidget {
         'main_screen': (_) => const MainScreen(),
         'likes_screen': (_) => const LikesScreen(),
         'comments_screen': (_) => const CommentsScreen(),
+        'profile_screen': (_) => const ProfileScreen(),
       },
       theme: ThemeData.light().copyWith(
         appBarTheme: const AppBarTheme(
